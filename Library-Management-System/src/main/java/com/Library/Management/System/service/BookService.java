@@ -14,24 +14,31 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
-// CREATE
+
+// creating/saving a specific record using save() method
     public  Book createBook(Book book) {
         return bookRepository.save(book);
     }
 
-    // READ
-    public List<Book> getBooks(){
+    // getting all book record using findAll() method
+    public List<Book> getBooks() {
         return bookRepository.findAll();
     }
 
-    // Delete
-    public void deleteBook(long id) {
-        bookRepository.deleteById((int) id);
+    // getting a specific  record by using the findById() method
+    public Book getBookById(int id) {
+        return bookRepository.findById(id).get();
     }
 
-    // UPDATE
-    public Book updateBook(long id, Book book) {
-        Book book1 = bookRepository.findById((int) id).get();
+    // Deleting a specific record using deleteById() method
+    public void deleteBook(int id) {
+
+        bookRepository.deleteById((id));
+    }
+
+    // updating a record
+    public Book updateBook(int id, Book book) {
+        Book book1 = bookRepository.findById(id).get();
         book1.setAuthor(book.getAuthor());
         book1.setGenre(book.getGenre());
         book1.setIsbn(book.getIsbn());
@@ -39,5 +46,7 @@ public class BookService {
 
         return bookRepository.save(book1);
     }
+
+
 
 }

@@ -13,17 +13,17 @@ public class Borrowing {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int book_id;
-   private int member_id;
-    private Date borrow_date;
-   private Date return_date;
+    private int bookId;
+   private int memberId;
+    private Date borrowDate;
+   private Date returnDate;
 
-    public Borrowing(int id, int book_id, int member_id, Date borrow_date, Date return_date) {
+    public Borrowing(int id, int bookId, int memberId, Date borrowDate, Date returnDate) {
         this.id = id;
-        this.book_id = book_id;
-        this.member_id = member_id;
-        this.borrow_date = borrow_date;
-        this.return_date = return_date;
+        this.bookId = bookId;
+        this.memberId = memberId;
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
     }
 
     public Borrowing() { // default constructor
@@ -37,35 +37,35 @@ public class Borrowing {
         this.id = id;
     }
 
-    public int getBook_id() {
-        return book_id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(int book_id) {
-        this.book_id = book_id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public int getMember_id() {
-        return member_id;
+    public int getMemberId() {
+        return memberId;
     }
 
-    public void setMember_id(int member_id) {
-        this.member_id = member_id;
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
-    public Date getBorrow_date() {
-        return borrow_date;
+    public Date getBorrowDate() {
+        return borrowDate;
     }
 
-    public void setBorrow_date(Date borrow_date) {
-        this.borrow_date = borrow_date;
+    public void setBorrowDate(Date borrowDate) {
+        this.borrowDate = borrowDate;
     }
 
-    public Date getReturn_date() {
-        return return_date;
+    public Date getReturnDate() {
+        return returnDate;
     }
 
-    public void setReturn_date(Date return_date) {
-        this.return_date = return_date;
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
     }
 }

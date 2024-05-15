@@ -15,14 +15,14 @@ public class Member {
     @Column(name = "Contact")
   private   String contact;
     @Column(name = "Member ID")
-   private String member_id;
+   private String memberId;
 
 
-    public Member(int id, String name, String contact, String member_id) {
+    public Member(int id, String name, String contact, String memberId) {
         this.id = id;
         this.name = name;
         this.contact = contact;
-        this.member_id = member_id;
+        this.memberId = memberId;
     }
 
     public Member() { // Default constructor
@@ -52,12 +52,12 @@ public class Member {
         this.contact = contact;
     }
 
-    public String getMember_id() {
-        return member_id;
+    public String getMemberId() {
+        return memberId;
     }
 
-    public void setMember_id(String member_id) {
-        this.member_id = member_id;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 }
 

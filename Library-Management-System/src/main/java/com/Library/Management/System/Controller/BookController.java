@@ -14,21 +14,34 @@ import java.util.List;
 public class BookController {
 @Autowired
 BookService bookService;
-    @RequestMapping(value = "/books", method = RequestMethod.POST)
-    public Book createBook(@RequestBody Book book) {
 
+   // creating post mapping that post the book in database
+    @PostMapping("/books")
+    public Book createBook(@RequestBody Book book) {
         return  bookService.createBook(book);
     }
-    @RequestMapping(value = "/books", method = RequestMethod.GET)
+
+    // creating get mapping that retrieves all the books from database
+    @GetMapping("/books")
     public List<Book> getBooks() {
         return bookService.getBooks();
     }
-    @RequestMapping(value = "/books/{id}", method =RequestMethod.DELETE)
-    public void deleteBook(@PathVariable(value = "id") Long id) {
-        bookService.deleteBook(id);
+
+    // creating get mapping that retrieves a specific book from database
+    @GetMapping("/books/{id}")
+    public Book getSingleBook(@PathVariable ("id") int id) {
+        return bookService.getBookById(id);
     }
-    @RequestMapping(value = "/books/{id}", method = RequestMethod.PUT)
-    public Book updateBook(@PathVariable(value = "id") Long id, @RequestBody Book book) {
+
+    // creating delete mapping that deletes a specific book
+    @DeleteMapping("/books/{id}")
+    public void deleteBook(@PathVariable("id") int id) {
+       bookService.deleteBook(id);
+    }
+
+   // creating put mapping that updates a specific record
+    @PutMapping("books/{id}")
+    public Book updateBook(@PathVariable("id") int id, @RequestBody Book book) {
         return bookService.updateBook(id, book);
     }
 }

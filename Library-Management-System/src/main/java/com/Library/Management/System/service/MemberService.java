@@ -13,28 +13,34 @@ public class MemberService {
     @Autowired
     MemberRepository memberRepository;
 
-    // CREATE
+    // creating/saving a specific record using save() method
     public Member createMember(Member member) {
         return memberRepository.save(member);
     }
 
-    // READ
-    public List<Member> getMember() {
+    // getting all member record using findAll() method
+    public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
 
-    // DELETE
-    public void deleteMember(long id) {
-        memberRepository.deleteById((int) id);
+
+    // getting a specific record using findById() method
+    public Member getMemberById(int id) {
+        return memberRepository.findById(id).get();
+    }
+
+    // deleting a specific record by using deleteById() method
+    public void deleteMember(int id) {
+        memberRepository.deleteById(id);
 
     }
 
     // UPDATE
-    public Member updateMember(long id, Member member) {
-        Member member1 = memberRepository.findById((int) id).get();
+    public Member updateMember(int id, Member member) {
+        Member member1 = memberRepository.findById(id).get();
         member1.setName(member.getName());
         member1.setContact(member.getContact());
-        member1.setMember_id(member.getMember_id());
+        member1.setMemberId(member.getMemberId());
 
         return memberRepository.save(member1);
     }
